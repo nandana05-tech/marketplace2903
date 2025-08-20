@@ -1,0 +1,24 @@
+<div class="container">
+  <h5 class="py-4 fw-bold">Produk <?php echo $kategori["nama_kategori"] ?></h5>
+
+  <section class="container mb-5">
+    <div class="row row-cols-2 row-cols-sm-3 row-cols-md-6 g-3">
+      <?php foreach ($produk as $value): ?>
+        <div class="col">
+          <a href="<?= base_url("produk/detail/" . $value["id_produk"]) ?>" class="text-decoration-none text-dark">
+            <div class="card h-100 border-0 shadow-sm">
+              <img src="<?= $this->config->item("url_produk") . $value["foto_produk"] ?>"
+                alt="<?= $value["nama_produk"] ?>"
+                class="card-img-top"
+                style="height: 180px; object-fit: cover;">
+              <div class="card-body p-2">
+                <p class="mb-1 text-truncate" title="<?= $value["nama_produk"] ?>"><?= $value["nama_produk"] ?></p>
+                <p class="fw-bold text-danger mb-0" style="font-size: 14px;">Rp <?= number_format($value["harga_produk"]) ?></p>
+              </div>
+            </div>
+          </a>
+        </div>
+      <?php endforeach; ?>
+    </div>
+  </section>
+</div>
